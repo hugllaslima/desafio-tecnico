@@ -1,4 +1,4 @@
-# Desafio técnico - Cubos DevOps
+# Desafio Técnico
 
 Este projeto implementa uma aplicação web completa usando infraestrutura como código com OpenTofu, Docker e conceitos de rede seguros.
 
@@ -8,15 +8,14 @@ Backend: API Node.js com acesso restrito
 Banco: PostgreSQL com volume persistente
 Proxy: Nginx como proxy reverso
 Redes: Segregação entre redes interna e externa
-📋 Dependências
-Software Necessário:
+
+📋 Dependências Software Necessário:
 Docker Engine 24.0+
 Docker Compose 2.0+
 OpenTofu 1.6+
 Git
 Instalação Ubuntu/Debian:
 bash
-Copiar
 
 # Docker
 curl -fsSL https://get.docker.com -o get-docker.sh
@@ -25,6 +24,7 @@ sh get-docker.sh
 # OpenTofu
 curl -Lo tofu.deb https://github.com/opentofu/opentofu/releases/download/v1.6.0/tofu_1.6.0_linux_amd64.deb
 sudo dpkg -i tofu.deb
+
 🚀 Como Executar
 1. Clone o repositório:
 bash
