@@ -106,7 +106,7 @@ resource "docker_container" "backend" {
   image = docker_image.backend.image_id
   
   env = [
-    "DB_HOST=${var.app_name}-postgres-db",
+    "DB_HOST=postgres-db",
     "DB_PORT=${var.postgres_port}",
     "DB_USER=${var.db_user}",
     "DB_PASSWORD=${var.db_password}",
@@ -122,7 +122,7 @@ resource "docker_container" "backend" {
   
   networks_advanced {
     name = docker_network.backend_network.name
-    aliases = ["backend-api"]
+    aliases = ["backend-api"]  # ✅ Alias para nginx encontrar
   }
   
   depends_on = [docker_container.postgres]
@@ -148,7 +148,7 @@ resource "docker_container" "frontend" {
   
   networks_advanced {
     name = docker_network.frontend_network.name
-    aliases = ["frontend-app"]
+    aliases = ["frontend-app"]  # ✅ Alias para nginx encontrar
   }
   
   restart = "unless-stopped"
