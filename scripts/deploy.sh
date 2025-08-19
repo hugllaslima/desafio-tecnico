@@ -1,13 +1,12 @@
-cat > scripts/deploy.sh << 'EOF'
 #!/bin/bash
+
 set -e
 
 echo "🚀 Iniciando deploy da aplicação..."
 
-# Verifica se OpenTofu está instalado
-if ! command -v tofu &> /dev/null; then
-    echo "❌ OpenTofu não encontrado. Por favor, instale primeiro."
-    echo "📖 Instruções: https://opentofu.org/docs/intro/install/"
+# Verifica se Terraform está instalado
+if ! command -v terraform &> /dev/null; then
+    echo "❌ Terraform não encontrado. Por favor, instale primeiro."
     exit 1
 fi
 
@@ -23,26 +22,17 @@ cd "$(dirname "$0")/.."
 echo "📁 Navegando para diretório terraform..."
 cd terraform
 
-echo "🔧 Inicializando OpenTofu..."
-tofu init
+echo "🔧 Inicializando Terraform..."
+terraform init
 
 echo "📋 Validando configuração..."
-tofu validate
+terraform validate
 
 echo "📊 Planejando infraestrutura..."
-tofu plan -out=tfplan
+terraform plan -out=tfplan
 
 echo "🏗️ Aplicando infraestrutura..."
-tofu apply tfplan
+terraform apply tfplan
 
 echo "✅ Deploy concluído!"
-echo "🌐 Aplicação disponível em: http://localhost:8080"
-echo ""
-echo "📋 Para verificar os containers:"
-echo "   docker ps"
-echo ""
-echo "📋 Para ver logs:"
-echo "   docker logs nginx-proxy"
-echo "   docker logs backend-api"
-echo "   docker logs frontend-app"
-EOF
+terraform output
