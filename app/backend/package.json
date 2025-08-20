@@ -1,6 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
+  "type": "module",
   "description": "Desafio Técnico - Cubos DevOps",
   "main": "index.js",
   "type": "module",
