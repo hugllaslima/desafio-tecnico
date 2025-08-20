@@ -1,0 +1,13 @@
+{
+  "name": "desafio-frontend",
+  "version": "1.0.0",
+  "description": "Frontend App",
+  "scripts": {
+    "build": "mkdir -p dist && cp -r src/* dist/",
+    "start": "http-server dist -p 80"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
