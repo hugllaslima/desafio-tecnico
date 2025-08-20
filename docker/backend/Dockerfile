@@ -3,11 +3,11 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Instala dependências
-COPY package*.json ./
+COPY app/backend/package*.json ./
 RUN npm install --only=production
 
 # Copia código fonte
-COPY . .
+COPY app/backend/ ./
 
 # Expõe porta
 EXPOSE 3000
