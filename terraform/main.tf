@@ -42,8 +42,8 @@ resource "docker_image" "nginx" {
 resource "docker_image" "frontend" {
   name = "${var.app_name}-frontend:latest"
   build {
-    context    = "../"
-    dockerfile = "docker/frontend/Dockerfile"
+    context    = ".."          
+    dockerfile = "./docker/frontend/Dockerfile"  
     tag        = ["${var.app_name}-frontend:latest"]
   }
 }
@@ -51,8 +51,8 @@ resource "docker_image" "frontend" {
 resource "docker_image" "backend" {
   name = "${var.app_name}-backend:latest"
   build {
-    context    = "../"
-    dockerfile = "docker/backend/Dockerfile"
+    context    = ".."           
+    dockerfile = "./docker/backend/Dockerfile"  
     tag        = ["${var.app_name}-backend:latest"]
   }
 }
