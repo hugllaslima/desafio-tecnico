@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Copia package.json e instala dependências
 COPY app/frontend/package*.json ./
-RUN npm ci --only=production
+RUN npm install
 
 
 # Copia código fonte
