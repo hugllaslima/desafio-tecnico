@@ -4,7 +4,6 @@
   "type": "module",
   "description": "Desafio Técnico - Cubos DevOps",
   "main": "index.js",
-  "type": "module",
   "author": "Cubos DevOps",
   "license": "ISC",
   "dependencies": {
